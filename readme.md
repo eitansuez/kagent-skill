@@ -15,6 +15,14 @@ create a cluster with a local registry, and install kagent:
 ./setup-kagent.sh
 ```
 
+build (and push) the k8s-deploy-skill:
+
+```shell
+pushd k8s-deploy-skill
+./build-image.sh
+popd
+```
+
 define a the simple k8s agent:
 
 ```shell
