@@ -1,11 +1,11 @@
 
-# basic setup instructions
+# instructions
 
 ## prerequisites
 
-docker
-k3d
-kagent cli
+- docker
+- k3d
+- kagent cli
 
 ## setup
 
