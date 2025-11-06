@@ -9,7 +9,7 @@ spec:
   type: Declarative
   skills:
     refs:
-    - localhost:5001/k8s-deploy-skill
+      - localhost:5001/k8s-deploy-skill:latest
   declarative:
     modelConfig: default-model-config
     stream: true
