@@ -5,6 +5,6 @@ k3d cluster create my-cluster \
     --k3s-arg "--disable=traefik@server:0" \
     --registry-create my-cluster-registry:0.0.0.0:5010
 
-kagent install --namespace kagent --profile minimal
+kagent install --profile minimal
 
 

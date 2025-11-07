@@ -3,7 +3,6 @@ apiVersion: kagent.dev/v1alpha2
 kind: Agent
 metadata:
   name: kebab-assistant
-  namespace: kagent
 spec:
   description: A test agent that knows how to make kebabs through an agent skill
   type: Declarative

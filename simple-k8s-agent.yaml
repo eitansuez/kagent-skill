@@ -3,7 +3,6 @@ apiVersion: kagent.dev/v1alpha2
 kind: Agent
 metadata:
   name: simple-k8s-assistant
-  namespace: kagent
 spec:
   description: A Kubernetes AI Agent specializing in cluster operations, troubleshooting, and maintenance.
   type: Declarative
