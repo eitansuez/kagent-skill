@@ -7,9 +7,9 @@ spec:
   description: A Kubernetes AI Agent specializing in cluster operations, troubleshooting, and maintenance.
   type: Declarative
   skills:
-    insecureSkipVerify: false
+    insecureSkipVerify: true
     refs:
-      - eitansuez/k8s-simple-deploy:latest
+      - host.docker.internal:5010/k8s-simple-deploy:latest
   declarative:
     modelConfig: default-model-config
     stream: true
