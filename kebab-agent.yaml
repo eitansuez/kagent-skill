@@ -1,0 +1,20 @@
+---
+apiVersion: kagent.dev/v1alpha2
+kind: Agent
+metadata:
+  name: kebab-assistant
+  namespace: kagent
+spec:
+  description: A test agent that knows how to make kebabs through an agent skill
+  type: Declarative
+  skills:
+    insecureSkipVerify: false
+    refs:
+      - eitansuez/kebab-maker:latest
+  declarative:
+    modelConfig: default-model-config
+    stream: true
+    systemMessage: |
+      # Kebab agent
+
+      You can invoke the kebab-maker agent skills.

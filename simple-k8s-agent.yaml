@@ -10,7 +10,7 @@ spec:
   skills:
     insecureSkipVerify: false
     refs:
-      - eitansuez/k8s-deploy-skill:latest
+      - eitansuez/k8s-simple-deploy:latest
   declarative:
     modelConfig: default-model-config
     stream: true

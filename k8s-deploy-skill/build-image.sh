@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build --push -t eitansuez/k8s-deploy-skill:latest .
+docker build --push -t eitansuez/k8s-simple-deploy:latest .
