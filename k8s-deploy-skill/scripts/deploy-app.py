@@ -35,11 +35,11 @@ def generate_manifest(app_name, image, replicas=1, port=80):
         apiVersion: v1
         kind: Service
         metadata:
-          name: {app_name}-svc
+          name: {app_name}
           labels:
             app: {app_name}
         spec:
-          type: LoadBalancer
+          type: ClusterIP
           selector:
             app: {app_name}
           ports:
@@ -72,34 +72,54 @@ No pip, no yaml, no problem.
 
 if __name__ == "__main__":
     args = sys.argv[1:]
-
+    
     if not args or "-h" in args or "--help" in args:
         print_usage()
         sys.exit(0)
-
+    
     if len(args) < 2:
         print("Error: Need <name> <image>")
         print_usage()
         sys.exit(1)
-
+    
     app_name = args[0]
     image = args[1]
+    
     replicas = 1
     port = 80
-
-    # Safely parse optional numeric args
-    for arg in args[2:]:
-        if arg.lstrip("-").isdigit():
-            num = int(arg)
-            if replicas == 1:
-                replicas = num
-            elif port == 80:
-                port = num
-
+    
+    # Parse optional positional numeric args: [replicas] [port]
+    if len(args) > 2:
+        if args[2].isdigit():
+            replicas = int(args[2])
+        else:
+            print(f"Error: replicas must be a number, got '{args[2]}'")
+            sys.exit(1)
+    
+    if len(args) > 3:
+        if args[3].isdigit():
+            port = int(args[3])
+        else:
+            print(f"Error: port must be a number, got '{args[3]}'")
+            sys.exit(1)
+    
+    if len(args) > 4:
+        print("Error: Too many arguments")
+        print_usage()
+        sys.exit(1)
+    
+    # Optional: validate reasonable ranges
+    if replicas < 1:
+        print("Error: replicas must be >= 1")
+        sys.exit(1)
+    if not (1 <= port <= 65535):
+        print("Error: port must be between 1 and 65535")
+        sys.exit(1)
+    
     print(f"Deploying {app_name}")
-    print(f"   Image: {image}")
-    print(f"   Replicas: {replicas}")
-    print(f"   Container port: {port} → Service port: 80")
+    print(f" Image: {image}")
+    print(f" Replicas: {replicas}")
+    print(f" Container port: {port} → Service port: 80")
     print()
 
     path = generate_manifest(app_name, image, replicas, port)
