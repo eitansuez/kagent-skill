@@ -8,6 +8,7 @@ spec:
   description: A Kubernetes AI Agent specializing in cluster operations, troubleshooting, and maintenance.
   type: Declarative
   skills:
+    insecureSkipVerify: false
     refs:
       - eitansuez/k8s-deploy-skill:latest
   declarative:
