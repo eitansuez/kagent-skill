@@ -9,7 +9,7 @@ spec:
   skills:
     insecureSkipVerify: true
     refs:
-      - host.docker.internal:5010/k8s-simple-deploy:latest
+      - host.k3d.internal:5010/k8s-simple-deploy:latest
   declarative:
     modelConfig: default-model-config
     stream: true
